@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Zukunftstag - jQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link href="lightbox/css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="lightbox/css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script src="lightbox/js/jquery-1.10.2.min.js"></script>
+    <script src="lightbox/js/lightbox-2.6.min.js"></script>
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+      body {
+      background: #282828;
+      }
+      .reveal {
+      background: transparent url("images/youtubePageSource-t.png");
+      }
+      span.red {
+      color: #ff6666;
+      }
+      span.blue {
+      color: #6666ff;
+      }
+      span.yellow {
+      color: #eeee00;
+      }
+      span.orange {
+      color: #ffaa33;
+      }
+      span.lila {
+      color: #aa33ff;
+      }
+      span.green {
+      color: #66ff66;
+      }
+      div.text {
+      text-align: center;
+      }
+      .bild {
+      height: 100px;
+      border: 0px;
+      }
+      .em {
+      color: #ffaa33;
+      }
+      .reg {
+      color: white;
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+      });
+    </script>
+  </head>
+
+  <body>
+    <div style="position: fixed; top: 5px;left:5px"><img src="images/boys-day-logo.png"></div>
+    <div style="position: fixed; top: 5px;right:5px"><img src="images/girls-day-logo.png"></div>
+    <div class="reveal">
+      <div class="slides">
+
+	<section><!-- Einführung -->
+	  <section><!-- Einführung - Agenda -->
+	    <h1>Zukunftstag</h1>
+	    <h3>jQuery, coole Moves fürs Web</h3>
+	  </section>
+	</section>
+
+	
+	<section><!-- JavaScript -->
+	  <section>
+	    <h3>Javascript, der Motor des Internets</h3>
+	    <p>Mit JavaScript können sich die (Web)Seiten verändern während man sie
+	      anschaut.</p>
+	    
+	    JavaScript schreibt man innerhalb des<br />
+	    <span class="blue">&lt;script&gt;&lt;/script&gt;</span></br />
+	    Tags.
+	  </section>
+	  
+	  <section>
+	    <h3>Funktionen einbinden</h3>
+	    Meist benutzt man eine sogenannte <span class="em">Library</span>  -  eine Sammlung
+	    von Funktionen in einer Datei. <br />
+	    Wenn man diese Datei in die eigene Webseite einbindet, kann man deren Funktionen nutzen.<br />
+	  </section>
+	  <section>
+	    <h3>jQuery Einbinden</h3>
+	    jQuery ist eine der populärsten JavaScript-Libraries.<br />
+	    Nachdem man die jQuery-Datei aus dem Internet heruntergeladen hat
+	    kann man sie im Header seiner Webseite einbinden.<br />
+	    <span class="blue">&lt;script src="</span>jquery.min.js <span class="blue">"&gt;&lt;/script&gt;</span>
+	  </section>
+	  
+	  <section id="bugsection" >
+	    <style>
+	      #bugimg {
+              border: 0;
+              background: rgba(0,0,0,0);
+              margin: 0;
+              width: 100px;
+              box-shadow: none;
+              position: absolute;
+              top: 0;
+              left: 0;
+	      }
+	    </style>
+	    <script>
+	      $(document).keyup(function(event) {
+	      
+              if (Reveal.getCurrentSlide().id == "bugsection") {
+	      
+              var bugInterval = setInterval (function() {
+              $("#bugimg")
+              .css("left", Math.random()*window.innerWidth/2)
+              .css("top", Math.random()*window.innerHeight/2)
+              .css("transform","rotate("+Math.random()*360+"deg)");
+              }, 1000);
+	      
+              } else {
+              clearInterval(bugInterval);
+              }
+	      
+	      });
+	    </script><img id="bugimg" src="images/bug-b.svg">
+	    <h3>Das Wichtigste beim Programmieren</h3>
+	    <p>
+	      <span class="orange">Computer sind total pingelig!!!</span><br />
+	      Leerzeichen an der falschen Stelle oder ein Groß- statt eines Kleinbuchstaben kann das Programm kaputt machen.
+	    </p><p>
+	      Ein guter Teil der Zeit beim Programmieren geht mit <span class="orange">Debugging</span> drauf.
+	  </section>
+	  
+	  <section>
+	    <h3>Das Handwerkzeugs von jQuery <br />(und den meisten anderen Sprachen)</h3>
+	    <ul>
+	      <li>Werte können in <span class="orange">Variablen</span> gespeichert und verändert werden
+	      <li>Mit <span class="orange">Schleifen</span> können Aktionen mehrfach ausgeführt werden
+	      <li>Es können <span class="orange">entweder/oder Abfragen</span> gemacht werden
+	      <li>Es gibt <span class="orange">vordefinierte Funktionen</span>
+	      <li>Mehrere verschiedene Aktionen können in <span class="orange">Funktionen</span> zusammengefasst werden
+	    </ul>
+	  </section>
+	</section>
+
+
+	<section>
+	  <section>
+	    <h3>Aufgabe</h3>
+	    <ul>
+	      <li>Um die folgenden Beispiele auszuprobieren, ruft das
+	      Entwicklerwerkzeug eures Browsers auf
+		<ul>
+		  <li>Entweder im Menü (Tools - Entwicklerwerkzeuge)</li>
+		  <li>Oder mit Strg+Shift+C</li>
+		</ul>
+	      <li>Wählt dann die Console zur Interaktion mit der Webseite aus</li>
+	    </ul>
+	  </section>
+
+	  <section>
+	    <h3>Vordefinierte Funktionen</h3>
+	    <h5>(zum Ausprobieren )</h5>
+	    <div style="text-align:left">
+	      <p><span class="orange">alert(</span>"Hallo Welt"<span class="orange">);</span></p>
+	      <p>1<span class="orange">+</span>3;</p>
+	    </div>
+	  </section>
+
+	  <section>
+	    <h3>Variable (zum Ausprobieren)</h3>
+	    <div style="text-align:left;">
+	      <span class="orange">var</span> ergebnis <span class="orange">=</span> 3;<br />
+	      <span class="orange">alert(</span>ergebnis<span class="orange">)</span>;<br />
+	      ergebnis <span class="orange">=</span> 5;<br />
+	      <span class="orange">alert(</span>ergebnis<span class="orange">)</span>;
+	    </div>
+	  </section>
+
+	  <section>
+	    <h3>Schleife (zum Ausprobieren)</h3>
+	    <div style="text-align:left">
+	      <span class="orange">for (</span>var i = 0; i < 3; i++<span class="orange">) {</span><br />
+							      <span class="orange">&nbsp;&nbsp;alert(</span>"Hallo, ich mache alles mehrfach"<span class="orange">);</span><br />
+							      <span class="orange">}</span>
+	    </div>
+	  </section>
+	  <section>
+	    <h3>Abfrage (zum Ausprobieren)</h3>
+	    <div style="text-align:left">
+	      <span class="orange">var</span> ergebnis = 1;<br />
+	      <span class="orange">if (</span>ergebnis == 1<span class="orange">) {</span><br />
+	      <span class="orange">&nbsp;&nbsp;alert(</span>"Stimmt!"<span class="orange">);</span><br />
+	      <span class="orange">} else {</span><br />
+	      <span class="orange">&nbsp;&nbsp;alert(</span>"Stimmt nicht!"<span class="orange">);</span><br />
+	      <span class="orange">}</span>
+	    </div>
+	  </section>
+	  
+	  <section>
+	    <h3>Funktion (zum Ausprobieren)</h3>
+	    <div style="text-align:left">
+	      <span class="green">var</span> sagsMir <span class="green">= function () {</span><br />
+	      <span class="green">&nbsp;&nbsp;var</span> ergebnis <span class="green">=</span> 1<span class="green">+</span>3;<br />
+	      <span class="green">&nbsp;&nbsp;alert(</span>"Ich sage " <span class="green">+</span> ergebnis<span class="green">);</span><br />
+	      <span class="green">}</span><br />
+	      sagsMir();
+	    </div>
+	  </section>
+	</section>
+
+	<section><!-- jQuery -->
+	  <section>
+	    <h1>jQuery</h1>
+	    <p>Stellt eine ganze Reihe nützlicher Funktionen zur Verfügung</p>
+	    <p>Vor allem zum Verändern von Seitenelementen</p>
+	  </section>
+
+	  <section data-markdown>
+	    ###Spezielle jQuery Funktionen
+	    ```
+	    $("p").css("background-color","blue");
+	    $("p").html("hallo Leute");
+	    $("p").append("
+	    Und hier kommt noch mehr Text
+	    ");
+	    ```
+	  </section>
+	  
+	  <section data-markdown>
+	    ###Ausführen nachdem alle Elemente geladen sind
+	    ```
+	    $(document).ready(function() {
+	    // Das hier wird getan nachdem die Seite geladen ist
+	    });
+	    ```
+	  </section>
+
+	  <section>
+	    <h3>Ausprobieren</h3>
+	    <ul>
+	      <li>Öffne deine Datei</li>
+	      <li>Importiere jQuery <br />
+		<span class="em">&lt;script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+		/&gt;</span></li>
+	      <li>Schreibe eigenen Code<br />
+		<span class="em">&lt;script&gt;<br />
+		  &nbsp;&nbsp;$(document).ready(function() {</span><br />
+		  &nbsp;&nbsp;&nbsp;&nbsp;// Hier kommt dein Code hin<br />
+		&nbsp;&nbsp;<span class="em">});<br />
+	      &lt;/script&gt;</span></li>
+	    </ul>
+	  </section>
+
+	</section>
+	  <section id="smiley">
+	    <script>
+	      $(document).keyup(function(event) {
+                if (Reveal.getCurrentSlide().id == "smiley") {
+	          setTimeout(function() {
+	            $("#smileycon")
+	              .animate({
+	                "font-size":"8em"
+	              }, "slow")
+	          }, 500)
+	        }
+	      });
+	    </script>
+	    <h1>Viel Spaß beim Programmieren!</h1>
+	    <h6 id="smileycon">:)</h6>
+
+	  </section>
+	</section>
+
+	<style>
+	  .moveRight {
+	  position: absolute;
+	  }
+	</style>
+	<script>
+	  $("h1:contains('JavaScript')").hover(function() {
+	  $(".moveRight").animate({ "marginLeft": "+500px"}, "slow");
+	  });
+	  $("h1:contains('JavaScript')").mouseleave(function() {
+	  $(".moveRight").animate({ "marginLeft": "-500px"}, "slow");
+	  });
+
+	</script><!-- Javascript -->
+
+
+	</div>
+      </div>
+
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.min.js"></script>
+
+      <script>
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+	// Parallax scrolling
+	// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+	// parallaxBackgroundSize: '2100px 900px',
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+	{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+	{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+	{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
+	});
+      </script>
+  </body>
+</html>
