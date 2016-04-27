@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=de>
+  <head>
+    <title>Mein erstes Onlinespiel</title>
+
+    <!-- das CSS -->
+    <style>
+      body {
+        background-color: midnightblue;
+        cursor: url("lightsaber.png"),auto;
+	color: white;
+      }
+      #vader {
+        width: 100px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+    </style>
+
+    <!-- Laden von jQuery -->
+    <script src="jquery.min.js"></script>
+
+    <!-- Der Programmierteil -->
+    <script>
+      // Dieses Script ausführen nachdem die Webseite geladen ist
+      $(document).ready( function() { 
+        var stopuhr;
+        
+        /**
+         * selbstgeschriebene Funktion zum Spielen
+         */
+        var spiele = function() {      
+        
+          // alte Stopuhr löschen (falls vorhanden), damit das Spiel nicht gestoppt wird
+          clearTimeout( stopuhr );      
+        
+          // Vader an zufällige Stelle setzen
+          $("#vader").css({
+            "left": Math.random()*window.innerWidth/2,
+            "top": Math.random()*window.innerHeight/2
+          });      
+        
+          // Stopuhr mit einem Timeout erzeugen
+          // das Spiel stoppen wenn der Timeout abgelaufen ist (nach 1000 Millisekunden)
+          stopuhr = setTimeout( function() { beendeSpiel() }, 1000 );      
+        
+        }
+        
+        /**
+         * Selbstgeschriebene Funktion zum Beenden des Spiels
+         */
+        var beendeSpiel = function() {
+          // Vader verschwinden lassen
+          $("#vader").css({
+            "visibility":"hidden"
+          });
+          // Meldung schreiben
+          $("body").html("Du hast verloren!")
+        }
+      
+        // Funktion "spiele" ausführen wenn Vader angeklickt wird
+        $("#vader").click(function() {
+          spiele();
+        });
+
+      });
+    </script>
+    
+  </head>
+
+  <!-- Der Teil, der auf der Webseite angezeigt wird -->
+  <body>
+    Hallo, schlage mich schneller als alle 2 Sekunden, oder ich zerquetsche dich! 
+ 
+    <img id="vader" src="vader.png">
+
+  </body>
